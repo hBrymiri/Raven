@@ -1,0 +1,38 @@
+<!-- home_logged_in.html -->
+{% extends 'base.html' %}
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<div class="Home_not_login"></div>
+</head>
+{% block content %}
+  <h2>Welcome, {{ user.username }}!</h2>
+  <!-- Other personalized content for logged-in users -->
+{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raven Log-In</title>
+    <form id = "login-form">
+      <label for ="username">Username:</label>
+      <input type="text" id = "username" name = "username" required>
+      <label for = "text" id ="username" name="password" requirex>
+        <label for =' password'>Password:</label>
+        <input type = " passpword" id ="password" name="password" required>
+        <button type="button" onlick="submitForm()"> Login</button>
+  
+         <script src="login.js"></script>
+        
+
+    </form>
+
+<body>
+
+    <!-- Your content goes here -->
+
+    <script>
+        // Your JavaScript code goes here
+    </script>
+
+</body>
+</html>

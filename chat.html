@@ -1,0 +1,84 @@
+// making a chat section for creating chat's rooms sharing riles and talking
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        /* Add styles for light and dark mode */
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        /* Add more styling for dark mode if needed */
+
+        .toggle-mode {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+    <title>Raven Chat</title>
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="chat-header"> Raven Chat</div>
+        <div class="chat-messages" id="chatMessages">
+            <!-- Chat messages will be dynamically added here -->
+        </div>
+        <div class="message-input">
+            <input type="text" id="messageInput">
+            <button onclick="sendMessage()" class="send-button">Send</button>
+        </div>
+        <div class="toggle-mode" onclick="toggleMode()">  [BUTTON]  </div> <!-- Toggle button for light/dark mode -->
+
+        <script>
+            // Check if the user preference is stored in localStorage
+            var isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+
+            // Apply the user preference for dark mode
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+            }
+
+            function toggleMode() {
+                var body = document.body;
+                body.classList.toggle('dark-mode');
+                var isEnabled = body.classList.contains('dark-mode');
+                localStorage.setItem('darkMode', isEnabled ? 'enabled' : 'disabled');
+            }
+
+            function sendMessage() {
+                var messageInput = document.getElementById('messageInput');
+                var chatMessages = document.getElementById('chatMessages');
+
+                // Get the message from the input
+                var messageText = messageInput.value.trim();
+
+                // Check if the message is not empty
+                if (messageText !== '') {
+                    // Create a new message element
+                    var messageElement = document.createElement('div');
+                    messageElement.className = 'message';
+                    messageElement.innerHTML = '<span class="user">You:</span><span class="text">' + messageText + '</span>';
+
+                    // Append the new message to the chat messages container
+                    chatMessages.appendChild(messageElement);
+
+                    // Clear the input field
+                    messageInput.value = '';
+
+                    // Scroll to the bottom to show the latest message
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>

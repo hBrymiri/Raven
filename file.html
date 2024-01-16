@@ -1,0 +1,32 @@
+// this file is for converting files and storing them as well as downloading 
+<!-- myapp/templates/myapp/file.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recent Files</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <div class="file-profile"></div>
+</head>
+</head>
+<body>
+    <h1>Available Files</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>File Name</th>
+                <th>Date Added</th>
+                <th>Size (GB)</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>{{ file.name }}</td>
+                    <td>{{ file.date_added|date:"F j, Y" }}</td>
+                    <td>{{ file.size|filesizeformat }}</td>
+                </tr>
+            
+        </tbody>
+    </table>
+</body>
+</html>

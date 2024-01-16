@@ -1,0 +1,1 @@
+// we wan to make the chat section interactive make it come to life adding features to the chat section 
