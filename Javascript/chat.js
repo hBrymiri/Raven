@@ -21,5 +21,7 @@ function registerMessanger(username,password,email){
      };
     })
 
+    user.sort((a=>b)
+
 }
 
